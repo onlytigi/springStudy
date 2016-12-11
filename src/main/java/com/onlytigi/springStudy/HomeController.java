@@ -36,4 +36,28 @@ public class HomeController {
 		return "home";
 	}
 	
+	/**
+	 * test page - needlogin
+	 * @param locale
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/needLogin", method = RequestMethod.GET)
+	public String needLogin(Locale locale, Model model) {
+		logger.info("need login page! The client locale is {}.", locale);
+		return "needLogin";
+	}
+	
+	/**
+	 * test page - admin page
+	 * @param locale
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/admin", method = RequestMethod.GET)
+	public String admin(Locale locale, Model model) {
+		logger.info("admin login page! The client locale is {}.", locale);
+		return "admin";
+	}
+	
 }

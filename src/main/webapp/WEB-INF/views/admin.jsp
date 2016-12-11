@@ -2,15 +2,13 @@
 <%@ page session="false" %>
 <html>
 <head>
-	<title>Home</title>
+	<title>admin</title>
 </head>
 <body>
 <h1>
-	Hello world!  
+	admin
 </h1>
 
-<P>  The time on the server is ${serverTime}. </P>
-<br>
 <P>  user : ${pageContext.request.remoteUser} </P>
 <br>
 <c:if test="${not empty pageContext.request.remoteUser}">

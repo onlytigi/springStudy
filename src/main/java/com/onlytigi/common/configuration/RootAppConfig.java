@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 @Configuration
 @Import({})
 @ComponentScan(
-basePackages = {"com.onlytigi.springStudy"}, 
+basePackages = {}, 
 includeFilters = @Filter(type = FilterType.ANNOTATION, value = {Service.class}))
 
 public class RootAppConfig implements InitializingBean {    
