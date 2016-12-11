@@ -8,6 +8,10 @@ import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.stereotype.Service;
 
+/**
+ * root-context.xml 대체 
+ * @author onlytigi
+ */
 @Configuration
 @Import({})
 @ComponentScan(

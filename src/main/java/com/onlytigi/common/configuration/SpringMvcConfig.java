@@ -24,6 +24,8 @@ import org.springframework.web.servlet.view.JstlView;
 
 /**
  * Spring MVC Configuration
+ * servlet-context.xml 대체
+ * @author onlytigi
  */
 @Configuration
 @EnableWebMvc

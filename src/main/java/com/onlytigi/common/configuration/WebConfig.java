@@ -11,6 +11,10 @@ import org.springframework.web.context.support.AnnotationConfigWebApplicationCon
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.DispatcherServlet;
 
+/**
+ * web.xml 대체 
+ * @author onlytigi
+ */
 public class WebConfig implements WebApplicationInitializer {
 
 	@Override
