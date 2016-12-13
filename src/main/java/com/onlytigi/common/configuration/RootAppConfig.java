@@ -13,9 +13,9 @@ import org.springframework.stereotype.Service;
  * @author onlytigi
  */
 @Configuration
-@Import({})
+@Import({PropertiesConfig.class, DataSourceConfig.class, SecurityConfig.class})
 @ComponentScan(
-basePackages = {}, 
+basePackages = {"com.onlytigi.common.security"}, 
 includeFilters = @Filter(type = FilterType.ANNOTATION, value = {Service.class}))
 
 public class RootAppConfig implements InitializingBean {    

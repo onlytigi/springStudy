@@ -1,12 +1,15 @@
 package com.onlytigi.common.configuration;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
+import com.onlytigi.common.security.UserAuthenticationService;
 
 /**
  * Security Config
@@ -15,6 +18,12 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+	
+	/*
+	* DB 접속을 통하여 사용자 정보 및 권한을 확인할 Service
+	*/
+	@Autowired UserAuthenticationService userAuthenticationService;
+	
 	
 	/*
 	 * user authentication manager 
@@ -28,8 +37,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	 */
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication() .withUser("user").password("password").roles("USER")
-		.and().withUser("admin").password("admin").roles("ADMIN");
+//		auth.inMemoryAuthentication() .withUser("user").password("password").roles("USER")
+//		.and().withUser("admin").password("admin").roles("ADMIN");
+		
+		// db로 부터 유저정보를 읽어와서 해당 권한 체크 
+		auth.userDetailsService(userAuthenticationService)
+		    .passwordEncoder(new ShaPasswordEncoder(256)); // 비밀번호 암호화 
 	}	
 
 	/**

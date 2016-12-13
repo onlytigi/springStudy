@@ -1,4 +1,4 @@
-package com.onlytigi.springStudy;
+package com.onlytigi.springStudy.controller;
 
 import java.util.Locale;
 

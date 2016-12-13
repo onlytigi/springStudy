@@ -30,7 +30,7 @@ import org.springframework.web.servlet.view.JstlView;
 @Configuration
 @EnableWebMvc
 @EnableAspectJAutoProxy
-@ComponentScan(basePackages = {"com.onlytigi.springStudy"}, 
+@ComponentScan(basePackages = {"com.onlytigi.**.controller"}, 
 		includeFilters = @Filter(value = {Controller.class, ControllerAdvice.class}), 
 		useDefaultFilters = false)
 
